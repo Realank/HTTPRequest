@@ -9,6 +9,9 @@
 #import "SelectCompanyTableViewController.h"
 #import "HttpUtil.h"
 #import "CustomModel.h"
+#import <MBProgressHUD.h>
+#define HUD_SHOW [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+#define HUD_HIDE [MBProgressHUD hideHUDForView:self.view animated:YES];
 
 @interface SelectCompanyTableViewController ()
 
@@ -20,13 +23,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HUD_SHOW;
      __weak __typeof(self) weakSelf = self;
     [HttpUtil findPlaceWithKeyword:self.keyword completed:^(id json, NSData *data, NSString *string) {
         CustomSearchModel* model = [CustomSearchModel customSearchModelWithDict:json];
         NSLog(@"%@",model);
         weakSelf.customerArr = model.customs;
         [weakSelf.tableView reloadData];
+        HUD_HIDE;
     } failed:^(NSError *error, NSString *message) {
+        HUD_HIDE;
         NSLog(@"错误%@",message);
     }];
     

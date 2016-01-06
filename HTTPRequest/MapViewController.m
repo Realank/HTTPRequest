@@ -10,6 +10,9 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <MapKit/MapKit.h>
+#import <MBProgressHUD.h>
+#define HUD_SHOW [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+#define HUD_HIDE [MBProgressHUD hideHUDForView:self.view animated:YES];
 
 @interface MapViewController ()<MAMapViewDelegate,AMapSearchDelegate>{
     MAMapView *_mapView;
@@ -107,6 +110,7 @@ updatingLocation:(BOOL)updatingLocation
 //实现逆地理编码的回调函数
 - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
+    HUD_HIDE;
     if(response.regeocode != nil)
     {
         //通过AMapReGeocodeSearchResponse对象处理搜索结果
@@ -153,6 +157,7 @@ updatingLocation:(BOOL)updatingLocation
     [pointAnnotation setCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude)];
 }
 - (IBAction)submit:(id)sender {
+    HUD_SHOW;
     MAPointAnnotation *pointAnnotation = [self findPoint];
     [self searchLatitude:pointAnnotation.coordinate.latitude longitude:pointAnnotation.coordinate.longitude];
 }

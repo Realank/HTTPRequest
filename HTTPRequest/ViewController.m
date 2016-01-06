@@ -11,6 +11,9 @@
 #import "CustomModel.h"
 #import "MapViewController.h"
 #import "SelectCompanyTableViewController.h"
+#import <MBProgressHUD.h>
+#define HUD_SHOW [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+#define HUD_HIDE [MBProgressHUD hideHUDForView:self.view animated:YES];
 
 @interface ViewController()<MapSearchCompleteDelegate, SelectCompleteDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *latitudeTF;
@@ -19,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationDetailTF;
 @property (weak, nonatomic) IBOutlet UITextField *customerTF;
 @property (weak, nonatomic) IBOutlet UITextView *contentTV;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonConstraint;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -26,25 +31,110 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.contentTV.layer.cornerRadius = 5;
+    self.contentTV.layer.borderWidth = 1;
+    self.contentTV.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
     
+}
+
+- (void)dismissKeyboard{
+    [self.view endEditing:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect keyboardRect = [aValue CGRectValue];
+    
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:animationDuration
+                     animations:^{
+                         
+                         weakSelf.bottonConstraint.constant = keyboardRect.size.height + 10;
+                     }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    
+    
+    NSDictionary *userInfo = [notification userInfo];
+    
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    __weak __typeof(self) weakSelf = self;
+    [UIView animateWithDuration:animationDuration
+                     animations:^{
+                         
+                        weakSelf.bottonConstraint.constant = 0;
+                         
+                     }];
 }
 
 - (IBAction)submit:(id)sender {
 //        [self signWithLatitude:@"39.109019" longitude:@"117.180391" location:@"上海虹桥机场" locationDetail:@"上海虹桥机场" content:@"我在上海虹桥机场"];
-        [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:self.contentTV.text completed:^(id json, NSData *data, NSString *string) {
-            if ([json isKindOfClass:[NSDictionary class]]) {
-                NSDictionary* dict = (NSDictionary*)json;
-                NSString* scode = [dict objectForKey:@"scode"];
-                if (![scode isEqualToString:@"0"]) {
-                    //error
-                }else{
-                    //success
-                    NSLog(@"success");
-                }
+    HUD_SHOW;
+    [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:self.contentTV.text completed:^(id json, NSData *data, NSString *string) {
+        HUD_HIDE;
+        if ([json isKindOfClass:[NSDictionary class]]) {
+            NSDictionary* dict = (NSDictionary*)json;
+            NSString* scode = [dict objectForKey:@"scode"];
+            if (![scode isEqualToString:@"0"]) {
+                //error
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"发送失败" message:@"请去客户端查看实际情况" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alert show];
+            }else{
+                //success
+                NSLog(@"success");
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"发送成功" message:@"请去客户端查看实际情况" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+                [alert show];
             }
-        } failed:^(NSError *error, NSString *message) {
-            NSLog(@"错误%@",message);
-        }];
+            
+        }
+    } failed:^(NSError *error, NSString *message) {
+        HUD_HIDE;
+        NSLog(@"错误%@",message);
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"发送失败" message:@"请去客户端查看实际情况" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        [alert show];
+    }];
 }
 
 -(void)SelectCompleteWithCompanyName:(NSString *)name {

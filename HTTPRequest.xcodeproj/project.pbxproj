@@ -219,6 +219,7 @@
 				8C02F35F1C3C9C8C00B7758E /* Assets.xcassets */,
 				8C02F3611C3C9C8C00B7758E /* LaunchScreen.storyboard */,
 				8C02F3641C3C9C8C00B7758E /* Info.plist */,
+				8C02F3861C3C9D9200B7758E /* AFNetworking */,
 				8C02F3531C3C9C8C00B7758E /* Supporting Files */,
 			);
 			path = HTTPRequest;
@@ -227,7 +228,6 @@
 		8C02F3531C3C9C8C00B7758E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C02F3861C3C9D9200B7758E /* AFNetworking */,
 				8C02F3541C3C9C8C00B7758E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -347,6 +347,7 @@
 				TargetAttributes = {
 					8C02F34F1C3C9C8C00B7758E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 275X96KVEB;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -618,6 +619,7 @@
 			baseConfigurationReference = 29CB72F1456D3633FE4CF39F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HTTPRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iMooc.HTTPRequest;
@@ -630,6 +632,7 @@
 			baseConfigurationReference = 4AC5BD5A977CA4BF493111C1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HTTPRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iMooc.HTTPRequest;
