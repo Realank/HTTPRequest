@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationTF;
 @property (weak, nonatomic) IBOutlet UITextField *locationDetailTF;
 @property (weak, nonatomic) IBOutlet UITextField *customerTF;
+@property (weak, nonatomic) IBOutlet UITextView *contentTV;
 
 @end
 
@@ -30,7 +31,7 @@
 
 - (IBAction)submit:(id)sender {
 //        [self signWithLatitude:@"39.109019" longitude:@"117.180391" location:@"上海虹桥机场" locationDetail:@"上海虹桥机场" content:@"我在上海虹桥机场"];
-        [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:@"我在上海虹桥机场" completed:^(id json, NSData *data, NSString *string) {
+        [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:self.contentTV.text completed:^(id json, NSData *data, NSString *string) {
             if ([json isKindOfClass:[NSDictionary class]]) {
                 NSDictionary* dict = (NSDictionary*)json;
                 NSString* scode = [dict objectForKey:@"scode"];
@@ -48,6 +49,7 @@
 
 -(void)SelectCompleteWithCompanyName:(NSString *)name {
     self.customerTF.text = name;
+    self.contentTV.text = [NSString stringWithFormat:@"我刚刚拜访了%@",name];
 }
 
 -(void)mapSearchCompleteWithLatitude:(NSString *)latitude longitude:(NSString *)longitude location:(NSString *)location andLocationDetail:(NSString *)locationDetail{
@@ -55,6 +57,7 @@
     self.longitudeTF.text = longitude;
     self.locationTF.text = location;
     self.locationDetailTF.text = locationDetail;
+    
 }
 
 
