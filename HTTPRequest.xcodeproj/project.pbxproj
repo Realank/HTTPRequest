@@ -26,6 +26,18 @@
 		8C02F3A21C3C9D9200B7758E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C02F3991C3C9D9200B7758E /* AFURLSessionManager.m */; };
 		8C02F3A51C3C9DBC00B7758E /* HttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C02F3A41C3C9DBC00B7758E /* HttpUtil.m */; };
 		8C02F3A81C3CDA0400B7758E /* CustomModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C02F3A71C3CDA0400B7758E /* CustomModel.m */; };
+		8C02F3AA1C3CEB9800B7758E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3A91C3CEB9800B7758E /* libc++.tbd */; };
+		8C02F3AC1C3CEBAF00B7758E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3AB1C3CEBAF00B7758E /* libz.tbd */; };
+		8C02F3B01C3CEBCB00B7758E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3AF1C3CEBCB00B7758E /* libstdc++.6.0.9.tbd */; };
+		8C02F3B21C3CEBDE00B7758E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3B11C3CEBDE00B7758E /* Security.framework */; };
+		8C02F3B41C3CEBE700B7758E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3B31C3CEBE700B7758E /* SystemConfiguration.framework */; };
+		8C02F3B61C3CEBF000B7758E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3B51C3CEBF000B7758E /* CoreTelephony.framework */; };
+		8C02F3B81C3CEC0500B7758E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3B71C3CEC0500B7758E /* CoreLocation.framework */; };
+		8C02F3BA1C3CEC0E00B7758E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3B91C3CEC0E00B7758E /* OpenGLES.framework */; };
+		8C02F3BC1C3CEC1600B7758E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C02F3BB1C3CEC1500B7758E /* QuartzCore.framework */; };
+		8C02F3BF1C3CEC8400B7758E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C02F3BE1C3CEC8400B7758E /* MapViewController.m */; };
+		8C8094B01C3D12CE0035B2BE /* SelectCompanyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8094AF1C3D12CE0035B2BE /* SelectCompanyTableViewController.m */; };
+		AE6B8705D3857E5C3D5F3650 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F27676563B19BCD3DDAD58 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03F27676563B19BCD3DDAD58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		29CB72F1456D3633FE4CF39F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4AC5BD5A977CA4BF493111C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8C02F3501C3C9C8C00B7758E /* HTTPRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTPRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C02F3541C3C9C8C00B7758E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C02F3561C3C9C8C00B7758E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +100,20 @@
 		8C02F3A41C3C9DBC00B7758E /* HttpUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpUtil.m; sourceTree = "<group>"; };
 		8C02F3A61C3CDA0400B7758E /* CustomModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomModel.h; sourceTree = "<group>"; };
 		8C02F3A71C3CDA0400B7758E /* CustomModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomModel.m; sourceTree = "<group>"; };
+		8C02F3A91C3CEB9800B7758E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8C02F3AB1C3CEBAF00B7758E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8C02F3AD1C3CEBBF00B7758E /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		8C02F3AF1C3CEBCB00B7758E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		8C02F3B11C3CEBDE00B7758E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8C02F3B31C3CEBE700B7758E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8C02F3B51C3CEBF000B7758E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8C02F3B71C3CEC0500B7758E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8C02F3B91C3CEC0E00B7758E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8C02F3BB1C3CEC1500B7758E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8C02F3BD1C3CEC8400B7758E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		8C02F3BE1C3CEC8400B7758E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		8C8094AE1C3D12CE0035B2BE /* SelectCompanyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCompanyTableViewController.h; sourceTree = "<group>"; };
+		8C8094AF1C3D12CE0035B2BE /* SelectCompanyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCompanyTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +121,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C02F3BC1C3CEC1600B7758E /* QuartzCore.framework in Frameworks */,
+				8C02F3BA1C3CEC0E00B7758E /* OpenGLES.framework in Frameworks */,
+				8C02F3B81C3CEC0500B7758E /* CoreLocation.framework in Frameworks */,
+				8C02F3B61C3CEBF000B7758E /* CoreTelephony.framework in Frameworks */,
+				8C02F3B41C3CEBE700B7758E /* SystemConfiguration.framework in Frameworks */,
+				8C02F3B21C3CEBDE00B7758E /* Security.framework in Frameworks */,
+				8C02F3B01C3CEBCB00B7758E /* libstdc++.6.0.9.tbd in Frameworks */,
+				8C02F3AC1C3CEBAF00B7758E /* libz.tbd in Frameworks */,
+				8C02F3AA1C3CEB9800B7758E /* libc++.tbd in Frameworks */,
+				AE6B8705D3857E5C3D5F3650 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +151,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D7E7B43EB3E15892D47ADD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C02F3BB1C3CEC1500B7758E /* QuartzCore.framework */,
+				8C02F3B91C3CEC0E00B7758E /* OpenGLES.framework */,
+				8C02F3B71C3CEC0500B7758E /* CoreLocation.framework */,
+				8C02F3B51C3CEBF000B7758E /* CoreTelephony.framework */,
+				8C02F3B31C3CEBE700B7758E /* SystemConfiguration.framework */,
+				8C02F3B11C3CEBDE00B7758E /* Security.framework */,
+				8C02F3AF1C3CEBCB00B7758E /* libstdc++.6.0.9.tbd */,
+				8C02F3AD1C3CEBBF00B7758E /* libstdc++.tbd */,
+				8C02F3AB1C3CEBAF00B7758E /* libz.tbd */,
+				8C02F3A91C3CEB9800B7758E /* libc++.tbd */,
+				03F27676563B19BCD3DDAD58 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83278E8C0E94BDEF2D1BDC93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29CB72F1456D3633FE4CF39F /* Pods.debug.xcconfig */,
+				4AC5BD5A977CA4BF493111C1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C02F3471C3C9C8C00B7758E = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +185,8 @@
 				8C02F36C1C3C9C8C00B7758E /* HTTPRequestTests */,
 				8C02F3771C3C9C8C00B7758E /* HTTPRequestUITests */,
 				8C02F3511C3C9C8C00B7758E /* Products */,
+				83278E8C0E94BDEF2D1BDC93 /* Pods */,
+				1D7E7B43EB3E15892D47ADD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +209,10 @@
 				8C02F3A41C3C9DBC00B7758E /* HttpUtil.m */,
 				8C02F3A61C3CDA0400B7758E /* CustomModel.h */,
 				8C02F3A71C3CDA0400B7758E /* CustomModel.m */,
+				8C02F3BD1C3CEC8400B7758E /* MapViewController.h */,
+				8C02F3BE1C3CEC8400B7758E /* MapViewController.m */,
+				8C8094AE1C3D12CE0035B2BE /* SelectCompanyTableViewController.h */,
+				8C8094AF1C3D12CE0035B2BE /* SelectCompanyTableViewController.m */,
 				8C02F3591C3C9C8C00B7758E /* ViewController.h */,
 				8C02F35A1C3C9C8C00B7758E /* ViewController.m */,
 				8C02F35C1C3C9C8C00B7758E /* Main.storyboard */,
@@ -212,9 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C02F37D1C3C9C8C00B7758E /* Build configuration list for PBXNativeTarget "HTTPRequest" */;
 			buildPhases = (
+				2BDD7095306FB67B248C045C /* Check Pods Manifest.lock */,
 				8C02F34C1C3C9C8C00B7758E /* Sources */,
 				8C02F34D1C3C9C8C00B7758E /* Frameworks */,
 				8C02F34E1C3C9C8C00B7758E /* Resources */,
+				B2B5F79E76FB41A1D812B2FB /* Embed Pods Frameworks */,
+				3AB009FFFAEBE28C235CA468 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +347,11 @@
 				TargetAttributes = {
 					8C02F34F1C3C9C8C00B7758E = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					8C02F3681C3C9C8C00B7758E = {
 						CreatedOnToolsVersion = 7.2;
@@ -330,6 +410,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2BDD7095306FB67B248C045C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3AB009FFFAEBE28C235CA468 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B5F79E76FB41A1D812B2FB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8C02F34C1C3C9C8C00B7758E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -342,11 +470,13 @@
 				8C02F3A11C3C9D9200B7758E /* AFURLResponseSerialization.m in Sources */,
 				8C02F39F1C3C9D9200B7758E /* AFURLConnectionOperation.m in Sources */,
 				8C02F39E1C3C9D9200B7758E /* AFSecurityPolicy.m in Sources */,
+				8C8094B01C3D12CE0035B2BE /* SelectCompanyTableViewController.m in Sources */,
 				8C02F3A51C3C9DBC00B7758E /* HttpUtil.m in Sources */,
 				8C02F39C1C3C9D9200B7758E /* AFHTTPSessionManager.m in Sources */,
 				8C02F3A01C3C9D9200B7758E /* AFURLRequestSerialization.m in Sources */,
 				8C02F3A21C3C9D9200B7758E /* AFURLSessionManager.m in Sources */,
 				8C02F3581C3C9C8C00B7758E /* AppDelegate.m in Sources */,
+				8C02F3BF1C3CEC8400B7758E /* MapViewController.m in Sources */,
 				8C02F3A81C3CDA0400B7758E /* CustomModel.m in Sources */,
 				8C02F3551C3C9C8C00B7758E /* main.m in Sources */,
 			);
@@ -485,6 +615,7 @@
 		};
 		8C02F37E1C3C9C8C00B7758E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29CB72F1456D3633FE4CF39F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HTTPRequest/Info.plist;
@@ -496,6 +627,7 @@
 		};
 		8C02F37F1C3C9C8C00B7758E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AC5BD5A977CA4BF493111C1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HTTPRequest/Info.plist;
@@ -572,6 +704,7 @@
 				8C02F37F1C3C9C8C00B7758E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C02F3801C3C9C8C00B7758E /* Build configuration list for PBXNativeTarget "HTTPRequestTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +713,7 @@
 				8C02F3821C3C9C8C00B7758E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C02F3831C3C9C8C00B7758E /* Build configuration list for PBXNativeTarget "HTTPRequestUITests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +722,7 @@
 				8C02F3851C3C9C8C00B7758E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
