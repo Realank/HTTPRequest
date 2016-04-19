@@ -19,7 +19,7 @@
     content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
     [cookieProperties setObject:@"x-ienterprise-passport" forKey:NSHTTPCookieName];
-    [cookieProperties setObject:@"\"OZyhI1Jf1uZ956mtStf1DqymMkfBjFXV4WRCV2c5AB4=\"" forKey:NSHTTPCookieValue];
+    [cookieProperties setObject:@"\"GEPn3pAcZcWzwZpl4RBsa0b441KEEPJEmRZfFAwDdVo=\"" forKey:NSHTTPCookieValue];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieDomain];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieOriginURL];
     [cookieProperties setObject:@"/mobile/" forKey:NSHTTPCookiePath];
@@ -63,7 +63,7 @@
     
     NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
     [cookieProperties setObject:@"x-ienterprise-passport" forKey:NSHTTPCookieName];
-    [cookieProperties setObject:@"\"OZyhI1Jf1uZ956mtStf1DqymMkfBjFXV4WRCV2c5AB4=\"" forKey:NSHTTPCookieValue];
+    [cookieProperties setObject:@"\"GEPn3pAcZcWzwZpl4RBsa0b441KEEPJEmRZfFAwDdVo=\"" forKey:NSHTTPCookieValue];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieDomain];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieOriginURL];
     [cookieProperties setObject:@"/mobile/" forKey:NSHTTPCookiePath];
@@ -78,7 +78,7 @@
         NSLog(@"%@", cookie);
     }
     NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"source",@"page",@"size",@"key"];
-    NSArray *value = @[@"3.6",@"0",@"3.6",@"0",@"iPhone OS,9.2,iPhone",@"2",@"1",@"20",keyword];
+    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.2,iPhone",@"2",@"1",@"20",keyword];
     NSDictionary *params = [NSDictionary dictionaryWithObjects:value forKeys:key];
     // Do any additional setup after loading the view, typically from a nib.
     [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/account/search.action" post:YES params:params completed:^(id json, NSData *data, NSString *string) {
