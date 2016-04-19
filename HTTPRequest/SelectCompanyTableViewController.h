@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CustomModel;
 @protocol SelectCompleteDelegate <NSObject>
 
-- (void)SelectCompleteWithCompanyName:(NSString*)name;
+- (void)SelectCompleteWithCompanyModel:(CustomModel*)company;
 
 @end
 

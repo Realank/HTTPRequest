@@ -7,12 +7,13 @@
 //
 
 #import "HttpUtil.h"
+#import "CustomModel.h"
 
 
 @implementation HttpUtil
 
 
-+ (void)signWithLatitude:(NSString*)latitude longitude:(NSString*)longitude location:(NSString*)location locationDetail:(NSString*)locationDetail content:(NSString*)content completed:(KKSucceedBlock)succeed failed:(KKFailedBlock)failed{
++ (void)signWithLatitude:(NSString*)latitude longitude:(NSString*)longitude location:(NSString*)location locationDetail:(NSString*)locationDetail content:(NSString*)content company:(CustomModel*)company completed:(KKSucceedBlock)succeed failed:(KKFailedBlock)failed{
     
     location = [location stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     locationDetail = [locationDetail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -35,7 +36,7 @@
     }
     NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"source",@"activityTypeId",@"arItemIds",@"arSystemId",@"content",@"feedStamp",@"latitude",@"location",@"locationDetail",@"longitude"];
     //    NSArray *value = @[@"3.6",@"0",@"3.6",@"0",@"iPhone OS,9.2,iPhone",@"2",@"2334971",@"3324360",@"510",@"shanghaixinqiaotongxin",[self timeStamp],@"39.109019",@"shanghailujiazui",@"shanghailujiazui",@"117.180391"];
-    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.3.1,iPhone 6",@"2",@"2468482",@"5104705",@"510",content,[self timeStamp],latitude,location,locationDetail,longitude];
+    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.3.1,iPhone 6",@"2",@"2468482",company.ids,@"510",content,[self timeStamp],latitude,location,locationDetail,longitude];
     NSDictionary *params = [NSDictionary dictionaryWithObjects:value forKeys:key];
     // Do any additional setup after loading the view, typically from a nib.
     [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/activity-record-new/multiAdd-batch.action" post:YES params:params completed:^(id json, NSData *data, NSString *string) {

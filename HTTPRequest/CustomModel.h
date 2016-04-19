@@ -11,6 +11,7 @@
 @interface CustomModel : NSObject
 
 @property (nonatomic,strong) NSString* name;
+@property (nonatomic,strong) NSString* ids;
 
 +(CustomModel*)customModelWithDict:(NSDictionary*) dict;
 

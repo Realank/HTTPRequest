@@ -15,9 +15,11 @@
         return nil;
     }
     NSString* name = [dict objectForKey:@"name"];
+    NSString* ids = [dict objectForKey:@"id"];
     if (name.length > 0) {
         CustomModel* model = [[self alloc]init];
         model.name = name;
+        model.ids = ids;
         return model;
     }
     return nil;

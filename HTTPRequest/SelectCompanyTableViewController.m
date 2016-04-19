@@ -64,7 +64,7 @@
     NSInteger row = indexPath.row;
     CustomModel *model = [self.customerArr objectAtIndex:row];
     if (self.completeDelegate) {
-        [self.completeDelegate SelectCompleteWithCompanyName:model.name];
+        [self.completeDelegate SelectCompleteWithCompanyModel:model];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

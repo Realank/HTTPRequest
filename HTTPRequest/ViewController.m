@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTV;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonConstraint;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) CustomModel *companyModel;
 
 @end
 
@@ -112,7 +113,7 @@
 - (IBAction)submit:(id)sender {
 //        [self signWithLatitude:@"39.109019" longitude:@"117.180391" location:@"上海虹桥机场" locationDetail:@"上海虹桥机场" content:@"我在上海虹桥机场"];
     HUD_SHOW;
-    [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:self.contentTV.text completed:^(id json, NSData *data, NSString *string) {
+    [HttpUtil signWithLatitude:self.latitudeTF.text longitude:self.longitudeTF.text location:self.locationTF.text locationDetail:self.locationDetailTF.text content:self.contentTV.text company:_companyModel completed:^(id json, NSData *data, NSString *string) {
         HUD_HIDE;
         if ([json isKindOfClass:[NSDictionary class]]) {
             NSDictionary* dict = (NSDictionary*)json;
@@ -137,9 +138,10 @@
     }];
 }
 
--(void)SelectCompleteWithCompanyName:(NSString *)name {
-    self.customerTF.text = name;
-    self.contentTV.text = [NSString stringWithFormat:@"我刚刚拜访了%@",name];
+-(void)SelectCompleteWithCompanyModel:(CustomModel *)company {
+    _companyModel = company;
+    self.customerTF.text = company.name;
+    self.contentTV.text = [NSString stringWithFormat:@"我刚刚拜访了%@",company.name];
 }
 
 -(void)mapSearchCompleteWithLatitude:(NSString *)latitude longitude:(NSString *)longitude location:(NSString *)location andLocationDetail:(NSString *)locationDetail{
