@@ -1,16 +1,29 @@
 PODS:
-  - AMap2DMap (3.2.0)
-  - AMapSearch (3.1.0)
-  - MBProgressHUD (0.9.2)
+  - AMap2DMap (5.6.1):
+    - AMapFoundation (~> 1.4)
+  - AMapFoundation (1.6.0)
+  - AMapSearch (7.1.0):
+    - AMapFoundation (~> 1.4)
+  - MBProgressHUD (1.1.0)
 
 DEPENDENCIES:
   - AMap2DMap
   - AMapSearch
-  - MBProgressHUD (~> 0.9.1)
+  - MBProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - AMap2DMap
+    - AMapFoundation
+    - AMapSearch
+    - MBProgressHUD
 
 SPEC CHECKSUMS:
-  AMap2DMap: 02c73a3e55ac033e3b0b8ec35d3d21ffcac5aae3
-  AMapSearch: aa7621ae8aec9cb8df116710b26e3fe3d09dc0ff
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  AMap2DMap: cac76bc057de18a1641f34df6b50bf5bc6b23571
+  AMapFoundation: bc2f6e077b9279942734ba55f9624222fcf42848
+  AMapSearch: 6bd6d361c5eb00110e0bffa4acf88b7bb9f7e059
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 40a75f30158be311550334f77bf738b070ae4d6d
+
+COCOAPODS: 1.8.3

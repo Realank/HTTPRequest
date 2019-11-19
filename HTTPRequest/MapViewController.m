@@ -8,6 +8,8 @@
 
 #import "MapViewController.h"
 #import <MAMapKit/MAMapKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <MapKit/MapKit.h>
 #import <MBProgressHUD.h>
@@ -32,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //配置用户Key
-    [MAMapServices sharedServices].apiKey = @"b375090d2216ac784911512ee27cb2a2";
+    [AMapServices sharedServices].apiKey = @"c835f3138e5e7839041aaf7109b5655d";
     
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     _mapView.delegate = self;
@@ -43,7 +45,7 @@
     
     
     //配置用户Key
-    [AMapSearchServices sharedServices].apiKey = @"b375090d2216ac784911512ee27cb2a2";
+    [AMapServices sharedServices].apiKey = @"c835f3138e5e7839041aaf7109b5655d";
     
     //初始化检索对象
     _search = [[AMapSearchAPI alloc] init];

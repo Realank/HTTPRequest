@@ -20,7 +20,7 @@
     content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
     [cookieProperties setObject:@"x-ienterprise-passport" forKey:NSHTTPCookieName];
-    [cookieProperties setObject:@"\"GEPn3pAcZcWzwZpl4RBsa0b441KEEPJEmRZfFAwDdVo=\"" forKey:NSHTTPCookieValue];
+    [cookieProperties setObject:@"\"4xvCkqNdXMi28RcYSnDQgbTpIsu7RuYFABa7N3J8Sj/n+h8h66CbcFKJS7Eqf0niaT10M+v6TnvJRVN1BPl3bSYjjkzxXCkwKtpwG8LJnpMenGLexElH5GMZEyrm9Nyn\"" forKey:NSHTTPCookieValue];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieDomain];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieOriginURL];
     [cookieProperties setObject:@"/mobile/" forKey:NSHTTPCookiePath];
@@ -34,12 +34,33 @@
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
         NSLog(@"%@", cookie);
     }
-    NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"source",@"activityTypeId",@"arItemIds",@"arSystemId",@"content",@"feedStamp",@"latitude",@"location",@"locationDetail",@"longitude"];
-    //    NSArray *value = @[@"3.6",@"0",@"3.6",@"0",@"iPhone OS,9.2,iPhone",@"2",@"2334971",@"3324360",@"510",@"shanghaixinqiaotongxin",[self timeStamp],@"39.109019",@"shanghailujiazui",@"shanghailujiazui",@"117.180391"];
-    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.3.1,iPhone 6",@"2",@"2468482",company.ids,@"510",content,[self timeStamp],latitude,location,locationDetail,longitude];
-    NSDictionary *params = [NSDictionary dictionaryWithObjects:value forKeys:key];
+    
+
+//    NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"source",@"activityTypeId",@"arItemIds",@"arSystemId",@"content",@"feedStamp",@"latitude",@"location",@"locationDetail",@"longitude"];
+//    //    NSArray *value = @[@"3.6",@"0",@"3.6",@"0",@"iPhone OS,9.2,iPhone",@"2",@"2334971",@"3324360",@"510",@"shanghaixinqiaotongxin",[self timeStamp],@"39.109019",@"shanghailujiazui",@"shanghailujiazui",@"117.180391"];
+//    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.3.1,iPhone 6",@"2",@"2468482",company.ids,@"510",content,[self timeStamp],latitude,location,locationDetail,longitude];
+    NSDictionary *params = @{
+       @"location": location,
+        @"arItemId": company.ids,
+        @"source": @"2",
+        @"appType": @"0",
+        @"inhouse": @"0",
+        @"appVersion": @"1910.0.3",
+        @"latitude": latitude,
+        @"os": @"iOS,12.4.1,iPhone 11 Pro Max",
+        @"arSystemId": @"510",
+        @"feedStamp": [self timeStamp],
+        @"activityTypeId": @"6159152",
+        @"longitude": longitude,
+        @"model": @"iPhone",
+        @"locationDetail": locationDetail,
+        @"entityType": @"6159152",
+        @"content": content,
+        @"_vs": @"1910.0.3",
+        
+    };
     // Do any additional setup after loading the view, typically from a nib.
-    [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/activity-record-new/multiAdd-batch.action" post:YES params:params completed:^(id json, NSData *data, NSString *string) {
+    [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/activity-record-new/add.action" post:YES params:params completed:^(id json, NSData *data, NSString *string) {
         if ( succeed ) {
             succeed(json, data, string);
         }
@@ -60,16 +81,19 @@
 
 + (void)findPlaceWithKeyword:(NSString*)keyword completed:(KKSucceedBlock)succeed failed:(KKFailedBlock)failed{
     
-    keyword = [keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    keyword = [keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
     [cookieProperties setObject:@"x-ienterprise-passport" forKey:NSHTTPCookieName];
-    [cookieProperties setObject:@"\"GEPn3pAcZcWzwZpl4RBsa0b441KEEPJEmRZfFAwDdVo=\"" forKey:NSHTTPCookieValue];
+    [cookieProperties setObject:@"\"4xvCkqNdXMi28RcYSnDQgbTpIsu7RuYFABa7N3J8Sj/n+h8h66CbcFKJS7Eqf0niaT10M+v6TnvJRVN1BPl3bSYjjkzxXCkwKtpwG8LJnpMenGLexElH5GMZEyrm9Nyn\"" forKey:NSHTTPCookieValue];
+//    [cookieProperties setObject:@"userId" forKey:NSHTTPCookieName];
+//    [cookieProperties setObject:@948196 forKey:NSHTTPCookieValue];
+    
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieDomain];
     [cookieProperties setObject:@"crm.xiaoshouyi.com" forKey:NSHTTPCookieOriginURL];
     [cookieProperties setObject:@"/mobile/" forKey:NSHTTPCookiePath];
     [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
-    //    [cookieProperties setObject:@"OZyhI1Jf1uZ956mtStf1DqymMkfBjFXV4WRCV2c5AB4=" forKey:@"x-ienterprise-passport"];
+    [cookieProperties setObject:@"OZyhI1Jf1uZ956mtStf1DqymMkfBjFXV4WRCV2c5AB4=" forKey:@"x-ienterprise-passport"];
     NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
     
@@ -78,11 +102,11 @@
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
         NSLog(@"%@", cookie);
     }
-    NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"source",@"page",@"size",@"key"];
-    NSArray *value = @[@"4.0",@"0",@"4.0",@"0",@"iPhone OS,9.2,iPhone",@"2",@"1",@"20",keyword];
+    NSArray *key = @[@"_vs",@"appType",@"appVersion",@"inhouse",@"os",@"model",@"source",@"page",@"size",@"key"];
+    NSArray *value = @[@"1910.0.3",@"0",@"1910.0.3",@"0",@"iOS,12.4.1,iPhone 6s",@"iPhone",@"2",@"1",@"20",keyword];
     NSDictionary *params = [NSDictionary dictionaryWithObjects:value forKeys:key];
     // Do any additional setup after loading the view, typically from a nib.
-    [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/account/search.action" post:YES params:params completed:^(id json, NSData *data, NSString *string) {
+    [HttpUtil send_request:@"https://crm.xiaoshouyi.com/mobile/account/search.action" post:NO params:params completed:^(id json, NSData *data, NSString *string) {
         if ( succeed ) {
             succeed(json, data, string);
         }
@@ -122,7 +146,7 @@
     // 申明返回的结果是json类型
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     // 解析加密的HTTPS网络请求数据
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/html", nil];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/html", nil];
     
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
